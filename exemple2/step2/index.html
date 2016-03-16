@@ -1,0 +1,41 @@
+<!doctype html>
+<!--<html ng-app="app">-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Turtles</title>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css" />
+  <link rel="stylesheet" href="style/app.css" />
+  <!--
+  <script src="vendors/angular.js"></script>
+
+  <script src="src/app.js"></script>
+  <script src="src/form/formModule.js"></script>
+  <script src="src/form/bootstrap-input.js"></script>
+  <script src="src/turtles/turtleModule.js"></script>
+  <script src="src/turtles/turtles.js"></script>
+  <script src="src/turtles/turtle-form.js"></script>
+  <script src="src/turtles/turtles-show.js"></script>
+  <script src="src/turtles/turtleController.js"></script>
+  <script src="src/turtles/turtleService.js"></script>
+
+   <script src="vendors/angular_1_router.js"></script>
+-->
+   <script src="./node_modules/systemjs/dist/system.src.js"></script>
+   <script src="./config.js"></script>
+   <script>
+
+   System.import('src/app')
+   .then(function() {
+     angular.bootstrap(document.body, ['app'], {strictDi:true});
+   })
+   .catch(function(err) {
+         console.log('Error: ', err, err.stack);
+       });
+
+   </script>
+</head>
+<body>
+  <app></app>
+</body>
+</html>

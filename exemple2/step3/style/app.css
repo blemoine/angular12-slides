@@ -1,0 +1,12 @@
+.round {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 100%;
+  border:1px solid #ccc;
+  vertical-align: middle;
+}
+
+.turtle-name {
+  vertical-align: middle;
+}

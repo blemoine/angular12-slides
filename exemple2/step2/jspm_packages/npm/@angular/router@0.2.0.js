@@ -1,0 +1,1 @@
+module.exports = require("npm:@angular/router@0.2.0/angular1/angular_1_router");

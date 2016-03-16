@@ -1,0 +1,6 @@
+~test
+testOnly da.*
+testOnly da.MyTestSpec
+compile
+test
+~test

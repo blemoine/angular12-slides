@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>De Angular 1 à Angular 2</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+		div.patate-schema {
+			text-align: center;
+
+		}
+		div.patate {
+			border:1px solid white;
+			border-radius: 100%;
+			height:200px;
+			width:200px;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+
+		span.patate-label {
+			margin-top:10px;
+			font-weight: bold;
+			display: block;
+			margin-bottom:15px;
+		}
+
+		span.patate-content {
+			font-size: 20px;
+			display:block;
+		}
+
+		div.big-patate {
+			height:600px;
+			width:600px;
+
+
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+				      <h1>De Angular 1 à Angular 2</h1>
+              //TODO Une jolie image avec les 2 logos ?
+              // Un morphing du logo du 1 vers le 2 ?
+				</section>
+
+        <section>
+          <h2>Qui suis-je&nbsp;?</h2>
+          <ul>
+            <li>Benoît Lemoine</li>
+            <li>Développeur FullStack (Scala / TypeScript) chez Captain&nbsp;Dash</li>
+            <li>@benoit_lemoine</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Un peu d'histoire</h2>
+          <p><strong>Angular est...</strong></p>
+          <ul>
+            <li class="fragment">Un framework Web</li>
+            <li class="fragment">Créé en 2009</li>
+            <li class="fragment">Open source</li>
+            <li class="fragment">Sponsorisé par google</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Angular 2</h2>
+          <ul>
+            <li class="fragment">Annoncé en septembre 2014</li>
+            <li class="fragment">Sans doute pour mi-2016</li>
+            <li class="fragment">N'a plus grand chose à voir avec Angular 1</li>
+            <li class="fragment">Pas de chemin de migration prévu <strong class="fragment">à l'origine</strong></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Angular 1 VS Angular 2</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Angular 1</th>
+                <th>Angular 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="fragment">
+                <td>JavaScript</td>
+                <td>TypeScript</td>
+              <tr>
+              <tr class="fragment">
+                <td>Orienté MV*</td>
+                <td>Orienté composant</td>
+              <tr>
+              <tr class="fragment">
+                <td>Double databinding</td>
+                <td>databinding <em>presque</em> unidrectionnel</td>
+              <tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Angular 1 - Exemple</h2>
+<pre><code class="javascript">
+  TODO écrire un exemple
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Angular 2 - Exemple</h2>
+<pre><code class="javascript">
+  TODO écrire le meme  exemple
+</code></pre>
+        </section>
+
+        <section>
+          <h2>TypeScript</h2>
+          //TODO Logo
+        </section>
+
+
+        <section>
+          <h2>TypeScript</h2>
+          <ul>
+            <li class="fragment">Made in MicroSoft en 2012</li>
+            <li class="fragment">Open Source (Apache V2)</li>
+            <li class="fragment">Sur-ensemble d'EcmaScript 2015/2016</li>
+            <li class="fragment">Statiquement typé</li>
+            <li class="fragment">Typage structurel et graduel</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>TypeScript - Exemple</h2>
+<pre><code class="javascript">
+Exemple incluant
+* de l'ES6 (const, let, class)
+* de l'ES7 (annotation)
+* du pas ES (static)
+* des types en dur
+* du any
+* des interface
+</code></pre>
+        </section>
+
+        <section>
+          <h2>TypeScript</h2>
+//TODO l'idée à retenir c'est que TypeScript se veut le plus proche de JS
+//En ajoutant juste des types pour garder plus de sécurité
+//parler vite fait des fichiers d'entete
+        </section>
+
+        <section>
+          <h2>Étude de cas</h2>
+          <h3>J'utilise Angular 1 <br />et<br /> je veux une migration la moins douloureuse possible</h3>
+          //TODO IMAGE ? Morphine ?
+          https://angular.io/docs/ts/latest/guide/upgrade.html
+        </section>
+
+        <section>
+          <h2>Étude de cas</h2>
+
+          <section>
+            <h3>La hiérarchie</h3>
+            //Image de la hiérarchie
+          </section>
+
+          <section>
+            <h3>index.html</h3>
+            <pre style="font-size:1.2rem"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html ng-app=&quot;app&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Turtles&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;vendors/bootstrap.min.css&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style/app.css&quot; /&gt;
+  &lt;script src=&quot;vendors/angular.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;vendors/angular-route.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;src/app.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;src/controller.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;src/service.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;src/route.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div ng-view class=&quot;view-frame&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>app.js</h3>
+            <pre><code class="javascript" data-trim>
+angular.module('app', [
+  'ngRoute'
+]);
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>route.js</h3>
+            <pre><code class="javascript" data-trim>
+angular.module('app').config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/turtles', {
+        templateUrl: 'partials/turtles.html',
+        controller: 'TurtlesCtrl'
+      }).
+      otherwise({
+        redirectTo: '/turtles'
+      });
+  }]);
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>controller.js</h3>
+            <pre><code class="javascript" data-trim>
+angular.module('app').controller('TurtlesCtrl',
+  ['$scope','TurtlesService',
+    function TurtlesCtrl($scope, TurtlesService) {
+      $scope.turtles = [];
+      $scope.newTurtle = null;
+      $scope.addTurtle = addTurtle;
+
+      TurtlesService.findAll().then(function (turtles) {
+        $scope.turtles = turtles
+      })
+
+      function addTurtle() {
+        TurtlesService.add($scope.newTurtle);
+        $scope.newTurtle = null;
+      }
+  }]);
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>service.js</h3>
+            <pre><code class="javascript" data-trim>
+var turtles = [{name:'Leonardo', color:'blue'}]
+
+angular.module('app').factory('TurtlesService',
+  ['$q', function TurtlesService($q) {
+    return {
+      findAll: function() {
+        return $q.resolve(turtles)
+      },
+      add: function(turtle) {
+        turtles.push(turtle);
+      }
+    }
+}]);
+
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>turtles.html</h3>
+            <pre style="font-size:1.15rem"><code class="html" data-trim>
+&lt;ul&gt;
+ &lt;li ng-repeat=&quot;turtle in turtles&quot;&gt;
+  &lt;span class=&quot;turtle-name&quot;&gt;{{turtle.name}}&lt;/span&gt;
+  &lt;span class=&quot;round&quot; ng-style=&quot;{&#39;background-color&#39;:turtle.color}&quot;&gt;&lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;form class=&quot;form-inline&quot; name=&quot;turtle-form&quot; ng-submit=&quot;addTurtle()&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
+              required name=&quot;name&quot; ng-model=&quot;newTurtle.name&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;color&quot;&gt;Color&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
+              required name=&quot;color&quot; ng-model=&quot;newTurtle.color&quot; /&gt;
+  &lt;/div&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Add a turtle&quot; class=&quot;btn btn-default&quot; /&gt;
+&lt;/form&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Capture écran</h3>
+            TODO
+          </section>
+        </section>
+
+
+        <section>
+          <h2>Étape 1 - Suivre les bonnes pratiques</h2>
+          <a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a>
+        </section>
+
+        <section>
+          <h2>Fichier organisé par module <strike>technique</strike> fonctionnel</h2>
+          // Image de la nouvelle arborescence
+          // + montrer qu'on a un point d'entrée
+        </section>
+
+        <section>
+          <h2>Service</h2>
+          <ul>
+            <li>Utiliser <code>service</code></li>
+            <li>Eviter la mutabilité</li>
+          </ul>
+          <pre><code class="javascript" data-trim>
+function TurtlesService($q) {
+    var self = this;
+    self.turtles = [{name:'Leonardo', color:'blue'}]
+
+    self.findAll = function() {
+      return $q.resolve(self.turtles)
+    }
+
+    self.add = function(turtle) {
+      self.turtles = self.turtles.concat([turtle])
+      return $q.resolve(turtle);
+    }
+}
+
+angular.module('turtles.app')
+  .service('TurtlesService', ['$q', TurtlesService]);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Controller</h2>
+          <ul>
+            <li>Utiliser <code>controllerAs</code></li>
+            <li>Banir <code>$scope</code></li>
+          </ul>
+          <pre style="font-size:1.2rem"><code class="javascript" data-trim>
+function TurtlesCtrl(TurtlesService) {
+  var vm = this;
+  vm.turtles = [];
+  TurtlesService.findAll().then(function (turtles) {
+    vm.turtles = turtles
+  });
+
+  vm.addTurtle = function addTurtle(turtle) {
+    TurtlesService.add(turtle).then(function(newTurtle) {
+       return TurtlesService.findAll().then(function(turtles) {
+         vm.turtles = turtles;
+       });
+    });
+  }
+}
+
+angular.module('turtles.app')
+  .controller('TurtlesCtrl', ['TurtlesService', TurtlesCtrl]);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Router</h2>
+          <ul>
+            <li>Utiliser <code>controllerAs</code></li>
+          </ul>
+          <pre><code class="javascript" data-trim>
+
+angular.module('turtles.app').config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/turtles', {
+        templateUrl: 'src/turtles/turtles.html',
+        controller: 'TurtlesCtrl',
+        controllerAs: 'vm'
+      }).
+      otherwise({
+        redirectTo: '/turtles'
+      });
+  }]);
+
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Template</h2>
+          <ul>
+            <li>Utiliser <code>controllerAs</code></li>
+            <li>Penser au <code>track by</code></li>
+          </ul>
+          <pre style="font-size:1.15rem" ><code class="html" data-trim>
+&lt;ul&gt;
+ &lt;li ng-repeat=&quot;turtle in vm.turtles track by turtle.name&quot;&gt;
+  &lt;span class=&quot;turtle-name&quot;&gt;{{turtle.name}}&lt;/span&gt;
+  &lt;span class=&quot;round&quot; ng-style=&quot;{&#39;background-color&#39;:turtle.color}&quot;&gt;&lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;form class=&quot;form-inline&quot; name=&quot;turtle-form&quot; ng-submit=&quot;vm.addTurtle()&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
+             required name=&quot;name&quot; ng-model=&quot;vm.newTurtle.name&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;color&quot;&gt;Color&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
+             required name=&quot;color&quot; ng-model=&quot;vm.newTurtle.color&quot; /&gt;
+  &lt;/div&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Add a turtle&quot; class=&quot;btn btn-default&quot; /&gt;
+&lt;/form&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Composants dans Angular 1</h2>
+          //Utiliser le .component pour les trucs qui se repete
+          //Les directives qui n'utilisent pas link
+          //Parler de '<' et '&'
+        </section>
+
+        <section>
+          <h2>Angular 1 orienté composant</h2>
+          //tout peut etre vu comme un composant
+          //Utilisation du router angular_1_router
+        </section>
+
+        <section>
+          <h2>Mettre un place un système de module</h2>
+        </section>
+
+        <section>
+          <h2>Utiliser TypeScript</h2>
+
+          //import / export
+          //Class
+          //arrow =>
+
+          //Types
+          // @memoize, @debounce
+        </section>
+
+        <section>
+          <h2>Étude de cas</h2>
+          <h3>Angular 2 sort</h3>
+          <h3>Comment je migre&nbsp;?</h3>
+        </section>
+
+        <section>
+          On peut mélanger du code angular 1 et du code angular 2
+          UpgradeAdapter - partage de service, partage de composant, dans un sens et dans l'autre
+          Montrer par l'exemple ?
+          Angular 1 est toujours parent
+          Faire une image avec les boites qui montre l'arborescence
+          DOwngrade / upgrade
+        </section>
+
+        <section>
+          <h2>Conclusion</h2>
+          <ul>
+            <li>Suivre les bonnes pratiques angular</li>
+            <li>Utiliser un système de module + TypeScript</li>
+            <li>Mélanger Angular 1 et 2</li>
+          </ul>
+        </section>
+
+				<section>
+					<h2>Questions&nbsp;?</h2>
+          //TODO Une image
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
