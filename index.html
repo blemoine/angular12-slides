@@ -194,212 +194,64 @@ Exemple incluant
           <h3>J'utilise Angular 1 <br />et<br /> je veux une migration la moins douloureuse possible</h3>
           //TODO IMAGE ? Morphine ?
           https://angular.io/docs/ts/latest/guide/upgrade.html
-        </section>
-
-        <section>
-          <h2>Étude de cas</h2>
-
-          <section>
-            <h3>La hiérarchie</h3>
-            //Image de la hiérarchie
-          </section>
-
-          <section>
-            <h3>index.html</h3>
-            <pre style="font-size:1.2rem"><code class="html" data-trim>
-&lt;!doctype html&gt;
-&lt;html ng-app=&quot;app&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;Turtles&lt;/title&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;vendors/bootstrap.min.css&quot; /&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;style/app.css&quot; /&gt;
-  &lt;script src=&quot;vendors/angular.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;vendors/angular-route.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;src/app.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;src/controller.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;src/service.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;src/route.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-   &lt;div ng-view class=&quot;view-frame&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>app.js</h3>
-            <pre><code class="javascript" data-trim>
-angular.module('app', [
-  'ngRoute'
-]);
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>route.js</h3>
-            <pre><code class="javascript" data-trim>
-angular.module('app').config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/turtles', {
-        templateUrl: 'partials/turtles.html',
-        controller: 'TurtlesCtrl'
-      }).
-      otherwise({
-        redirectTo: '/turtles'
-      });
-  }]);
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>controller.js</h3>
-            <pre><code class="javascript" data-trim>
-angular.module('app').controller('TurtlesCtrl',
-  ['$scope','TurtlesService',
-    function TurtlesCtrl($scope, TurtlesService) {
-      $scope.turtles = [];
-      $scope.newTurtle = null;
-      $scope.addTurtle = addTurtle;
-
-      TurtlesService.findAll().then(function (turtles) {
-        $scope.turtles = turtles
-      })
-
-      function addTurtle() {
-        TurtlesService.add($scope.newTurtle);
-        $scope.newTurtle = null;
-      }
-  }]);
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>service.js</h3>
-            <pre><code class="javascript" data-trim>
-var turtles = [{name:'Leonardo', color:'blue'}]
-
-angular.module('app').factory('TurtlesService',
-  ['$q', function TurtlesService($q) {
-    return {
-      findAll: function() {
-        return $q.resolve(turtles)
-      },
-      add: function(turtle) {
-        turtles.push(turtle);
-      }
-    }
-}]);
-
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>turtles.html</h3>
-            <pre style="font-size:1.15rem"><code class="html" data-trim>
-&lt;ul&gt;
- &lt;li ng-repeat=&quot;turtle in turtles&quot;&gt;
-  &lt;span class=&quot;turtle-name&quot;&gt;{{turtle.name}}&lt;/span&gt;
-  &lt;span class=&quot;round&quot; ng-style=&quot;{&#39;background-color&#39;:turtle.color}&quot;&gt;&lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;form class=&quot;form-inline&quot; name=&quot;turtle-form&quot; ng-submit=&quot;addTurtle()&quot;&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
-              required name=&quot;name&quot; ng-model=&quot;newTurtle.name&quot; /&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-    &lt;label for=&quot;color&quot;&gt;Color&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
-              required name=&quot;color&quot; ng-model=&quot;newTurtle.color&quot; /&gt;
-  &lt;/div&gt;
-  &lt;input type=&quot;submit&quot; value=&quot;Add a turtle&quot; class=&quot;btn btn-default&quot; /&gt;
-&lt;/form&gt;
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>Capture écran</h3>
-            TODO
-          </section>
+          FOCUS on WHY not on HOW
         </section>
 
 
         <section>
-          <h2>Étape 1 - Suivre les bonnes pratiques</h2>
+          <h2>Étape 1</h2>
+          <h3>Suivre les bonnes pratiques</h3>
           <a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a>
         </section>
 
         <section>
-          <h2>Fichier organisé par module <strike>technique</strike> fonctionnel</h2>
-          // Image de la nouvelle arborescence
-          // + montrer qu'on a un point d'entrée
+          <h2>Réorganiser son code</h2>
+          //TODO image de la réorganisation en module et en pod
         </section>
 
         <section>
           <h2>Service</h2>
           <ul>
+            <li>Eviter <strike><code>factory</code></strike></li>
             <li>Utiliser <code>service</code></li>
-            <li>Eviter la mutabilité</li>
           </ul>
-          <pre><code class="javascript" data-trim>
+<pre><code class="javascript" data-trim>
+TurtlesService.$inject = ['$q']
 function TurtlesService($q) {
     var self = this;
-    self.turtles = [{name:'Leonardo', color:'blue'}]
+    var turtles = [{name:'Leonardo', color:'blue'}]
 
-    self.findAll = function() {
-      return $q.resolve(self.turtles)
-    }
-
-    self.add = function(turtle) {
-      self.turtles = self.turtles.concat([turtle])
-      return $q.resolve(turtle);
+    self.findAll = function findAll() {
+      return $q.resolve(turtles)
     }
 }
 
 angular.module('turtles.app')
-  .service('TurtlesService', ['$q', TurtlesService]);
-          </code></pre>
+    .service('TurtlesService', TurtlesService);
+</code></pre>
         </section>
 
-        <section>
-          <h2>Controller</h2>
-          <ul>
-            <li>Utiliser <code>controllerAs</code></li>
-            <li>Banir <code>$scope</code></li>
-          </ul>
-          <pre style="font-size:1.2rem"><code class="javascript" data-trim>
+                <section>
+                  <h2>Controller</h2>
+                  <ul>
+                    <li>Bannir <strike><code>$scope</code></strike></li>
+                    <li>Utiliser <code>controllerAs</code></li>
+                  </ul>
+<pre><code class="javascript" data-trim >
+TurtlesCtrl.$inject = ['TurtlesService'];
 function TurtlesCtrl(TurtlesService) {
   var vm = this;
   vm.turtles = [];
   TurtlesService.findAll().then(function (turtles) {
     vm.turtles = turtles
   });
-
-  vm.addTurtle = function addTurtle(turtle) {
-    TurtlesService.add(turtle).then(function(newTurtle) {
-       return TurtlesService.findAll().then(function(turtles) {
-         vm.turtles = turtles;
-       });
-    });
-  }
 }
+</code></pre>
+                </section>
 
-angular.module('turtles.app')
-  .controller('TurtlesCtrl', ['TurtlesService', TurtlesCtrl]);
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Router</h2>
-          <ul>
-            <li>Utiliser <code>controllerAs</code></li>
-          </ul>
-          <pre><code class="javascript" data-trim>
-
+                <section>
+                  <h2><code>controllerAs</code></h2>
+<pre><code class="javascript" data-trim >
 angular.module('turtles.app').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
@@ -407,86 +259,276 @@ angular.module('turtles.app').config(['$routeProvider',
         templateUrl: 'src/turtles/turtles.html',
         controller: 'TurtlesCtrl',
         controllerAs: 'vm'
-      }).
-      otherwise({
-        redirectTo: '/turtles'
-      });
+      })
   }]);
+</code></pre>
+                </section>
 
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Template</h2>
-          <ul>
-            <li>Utiliser <code>controllerAs</code></li>
-            <li>Penser au <code>track by</code></li>
-          </ul>
-          <pre style="font-size:1.15rem" ><code class="html" data-trim>
+                <section>
+                  <h2><code>controllerAs</code></h2>
+                  <pre  ><code class="html" data-trim>
 &lt;ul&gt;
- &lt;li ng-repeat=&quot;turtle in vm.turtles track by turtle.name&quot;&gt;
-  &lt;span class=&quot;turtle-name&quot;&gt;{{turtle.name}}&lt;/span&gt;
-  &lt;span class=&quot;round&quot; ng-style=&quot;{&#39;background-color&#39;:turtle.color}&quot;&gt;&lt;/span&gt;
- &lt;/li&gt;
+  &lt;li ng-repeat=&quot;turtle in vm.turtles track by turtle.name&quot;&gt;
+    &lt;span class=&quot;turtle-name&quot;&gt;{{turtle.name}}&lt;/span&gt;
+    &lt;span class=&quot;round&quot;
+          ng-style=&quot;{&#39;background-color&#39;:turtle.color}&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-&lt;form class=&quot;form-inline&quot; name=&quot;turtle-form&quot; ng-submit=&quot;vm.addTurtle()&quot;&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
-             required name=&quot;name&quot; ng-model=&quot;vm.newTurtle.name&quot; /&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-    &lt;label for=&quot;color&quot;&gt;Color&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot;
-             required name=&quot;color&quot; ng-model=&quot;vm.newTurtle.color&quot; /&gt;
-  &lt;/div&gt;
-  &lt;input type=&quot;submit&quot; value=&quot;Add a turtle&quot; class=&quot;btn btn-default&quot; /&gt;
-&lt;/form&gt;
-          </code></pre>
-        </section>
+              </code></pre>
+                </section>
 
-        <section>
-          <h2>Composants dans Angular 1</h2>
-          //Utiliser le .component pour les trucs qui se repete
-          //Les directives qui n'utilisent pas link
-          //Parler de '<' et '&'
-        </section>
+                <section>
+                  <h2>Composants</h2>
+                  //TODO img components everywere
+                </section>
 
-        <section>
-          <h2>Angular 1 orienté composant</h2>
-          //tout peut etre vu comme un composant
-          //Utilisation du router angular_1_router
-        </section>
+                <section>
+                  <h2><code>component</code></h2>
+                  Montrer la nouvelle fonctionnalité, comparer avec directive
+                  insister sur < et &
+                </section>
 
-        <section>
-          <h2>Mettre un place un système de module</h2>
-        </section>
+                <section>
+                  <h2>Tout est composant</h2>
+                  Montrer une capture d'écran avec les border sur les composants
+                </section>
 
-        <section>
-          <h2>Utiliser TypeScript</h2>
+                <section>
+                  <h2>Routing</h2>
+                  //angular_1_router
+                </section>
 
-          //import / export
-          //Class
-          //arrow =>
+                <section>
+                  <h2>Système de module</h2>
+                  //IMg ? Eh dawg ?
+                </section>
 
-          //Types
-          // @memoize, @debounce
-        </section>
+                <section>
+                  <h2>ES6 Syntax</h2>
+<pre><code class="javascript" data-trim>
+//MyMath.ts
+export default function add(a, b) {
+  return a + b;
+}
+export function multiply(a, b) {
+  return a * b;
+}
+</code></pre>
+<pre><code class="javascript" data-trim>
+import myAdd from 'MyMath';
+import {multiply} from 'MyMath';
 
-        <section>
-          <h2>Étude de cas</h2>
-          <h3>Angular 2 sort</h3>
-          <h3>Comment je migre&nbsp;?</h3>
-        </section>
+myAdd(1, 2) //3
+multiply(2, 3) //6
+</code></pre>
+                </section>
 
-        <section>
-          On peut mélanger du code angular 1 et du code angular 2
-          UpgradeAdapter - partage de service, partage de composant, dans un sens et dans l'autre
-          Montrer par l'exemple ?
-          Angular 1 est toujours parent
-          Faire une image avec les boites qui montre l'arborescence
-          DOwngrade / upgrade
-        </section>
+                <section>
+                  <h2>SystemJs</h2>
+                  <ul>
+                    <li>Module Loader</li>
+                    <li class="fragment">Support AMD, CommonJS, ES6</li>
+                    <li class="fragment">Choisir par défaut sur Angular 2</li>
+                    <li class="fragment">Future Standard <em class="fragment">peut être</em></li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>JSPM</h2>
+                  <ul>
+                    <li><em>Un autre</em> package manager</li>
+                    <li class="fragment">Depuis npm, github, bitbucket, etc.</li>
+                    <li class="fragment">Même auteur que SystemJs</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>TypeScript</h2>
+                  <p>Compilation à la volée</p>
+                  <ul>
+                    <li class="fragment">Pro&nbsp;: erreur de compilation dans le navigateur</li>
+                    <li class="fragment">Pro&nbsp;: plus simple à configurer</li>
+                    <li class="fragment">Con&nbsp;: lent</li>
+                    <li class="fragment">Con&nbsp;: workflow différent en prod et en dev</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Typings</h2>
+                  <ul>
+                    <li>Package manager pour les fichiers d'entête TypeScript</li>
+                  </ul>
+                  <pre><code>
+/// &lt;reference path="main.d.ts" />
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Exemple</h2>
+<pre><code class="bash" data-trim>
+npm install systemjs jspm typings typescript
+jspm install ts angular npm:@angular/router
+typings install jquery --save --ambient
+typings install angular --save --ambient
+typings install angular-component-router --save --ambient
+</code></pre>
+<pre><code class="javascript" data-trim>
+System.config({
+  //...
+  packages: {
+    "src": {
+      "defaultExtension": "ts",
+      "meta": {
+        "*.ts": {
+          "loader": "ts"
+        }
+      }
+    }
+  },
+  //...
+});
+</code></pre>
+                </section>
+
+                <section>
+                  <h2>Bootstraping</h2>
+                <pre><code class="javascript" data-trim>
+System.import('src/app')
+.then(function() {
+  return System.import('angular');
+})
+.then(function(angular) {
+   angular.bootstrap(document.body, ['app'], {strictDi:true});
+})
+.catch(function(err) {
+   console.log('Error: ', err, err.stack);
+});
+
+                </code></pre>
+                </section>
+
+                <section>
+                  <h2>Les types</h2>
+                  <ul>
+                    <li>Bannir au maximum <code>any</code></li>
+                    <li>Eviter les appels dynamiques</li>
+                    <li>Typer explicitement les entrées/sorties</li>
+                  </ul>
+                  <pre><code class="javascript" data-trim>
+export interface Turtle {
+  name:string
+  color:string
+}
+
+class TurtlesService {
+    public turtles:Array&lt;Turtle> = [{name:'Leonardo', color:'blue'}]
+
+    static $inject = ['$q'];
+    constructor(private $q:ng.IQService) { }
+    findAll():ng.IPromise&lt;Array&lt;Turtle>> {
+      return this.$q.resolve(this.turtles)
+    }
+}
+
+export default TurtlesService;
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Abuser d'ES6</h2>
+<pre><code class="javascript" data-trim>
+import {Turtle} from './turtleService'
+import TurtlesService from './turtleService';
+
+class TurtlesCtrl {
+
+  public turtles:Array&lt;Turtle> = []
+
+  static $inject = ['TurtlesService'];
+  constructor(private TurtlesService:TurtlesService) {
+    TurtlesService.findAll()
+      .then(turtles => this.turtles = turtles)
+  }
+}
+
+</code></pre>
+                </section>
+
+                <section>
+                  <h2>Comment remplacer <code>$scope.$watch</code></h2>
+<pre><code class="javascript" data-trim>
+class TurtlesCtrl {
+  public turtles:Array&lt;Turtle> = []
+
+  get firstTurtleName():string {
+    return this.turtles[0] &amp;&amp; this.turtles[0].name;
+  }
+  set firstTurtleName(firstTurtleName:string) {
+    if(!this.turtles[0]) {
+      this.turtles[0] = {name:'', color:''}
+    }
+    this.turtles[0].name = firstTurtleName;
+  }
+}
+</code></pre>
+<pre><code class="javascript" data-trim>
+  &lt;input ng-model="vm.firstTurtleName" />
+</code></pre>
+                </section>
+
+                <section>
+                  <h2>Decorators</h2>
+                  <ul>
+                    <li>Ajouter du <em>comportement transverse</em> à des méthodes</li>
+                  </ul>
+<pre><code class="javascript" data-trim>
+//debounce.ts
+import _ from 'lodash';
+
+function debounce(debounceInMs:number) {
+ return function (target:Object,
+                   propertyKey:string,
+                   descriptor:TypedPropertyDescriptor&lt;any>) {
+  descriptor.value = _.debounce(descriptor.value, debounceInMs);
+  return descriptor
+ }
+}
+
+export default debounce
+</code></pre>
+<pre><code class="javascript" data-trim>
+class TurtlesCtrl {
+  @debounce(300)
+  search(textToSearch:string) {
+    //...
+  }
+}
+</code></pre>
+                </section>
+
+                <section>
+                  <h2>Decorators - Exemples</h2>
+                  <ul>
+                    <li>Throttle</li>
+                    <li>Memoize</li>
+                    <li>Inject</li>
+                    <li>etc.</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Angular 2 !</h2>
+                  On peut mélanger du code angular 1 et du code angular 2
+                  UpgradeAdapter - partage de service, partage de composant, dans un sens et dans l'autre
+                  Montrer par l'exemple ?
+                  Angular 1 est toujours parent
+                  Faire une image avec les boites qui montre l'arborescence
+                  DOwngrade / upgrade
+                </section>
+
+                <section>
+                  parler des alternatives pour utiliser les annotations angular 2 dans angular 1
+                </section>
 
         <section>
           <h2>Conclusion</h2>
