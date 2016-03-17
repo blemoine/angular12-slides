@@ -171,22 +171,32 @@
 
         <section>
           <h2>TypeScript - Exemple</h2>
-<pre><code class="javascript">
-Exemple incluant
-* de l'ES6 (const, let, class)
-* de l'ES7 (annotation)
-* du pas ES (static)
-* des types en dur
-* du any
-* des interface
+<pre><code class="javascript" data-trim>
+interface User {
+  firstName:string
+  lastName:string
+}
+
+class Room {
+  constructor(private users:Array&lt;User> = []) {}
+
+  addUser(user:User) {
+    this.users.push(user);
+  }
+}
+
+const room = new Room();
+room.addUser({firstName:'Georges', lastName:'Abitbol'});
 </code></pre>
         </section>
 
         <section>
           <h2>TypeScript</h2>
-//TODO l'idée à retenir c'est que TypeScript se veut le plus proche de JS
-//En ajoutant juste des types pour garder plus de sécurité
-//parler vite fait des fichiers d'entete
+          <ul>
+            <li>Migration et apprentissage simples</li>
+            <li>Nécessité d'utiliser des fichiers d'entête <code>.d.ts</code> pour les librairies</li>
+            <li>Documente efficacement</li>
+          </ul>
         </section>
 
         <section>
@@ -346,10 +356,10 @@ multiply(2, 3) //6
                   <h2>TypeScript</h2>
                   <p>Compilation à la volée</p>
                   <ul>
-                    <li class="fragment">Pro&nbsp;: erreur de compilation dans le navigateur</li>
-                    <li class="fragment">Pro&nbsp;: plus simple à configurer</li>
-                    <li class="fragment">Con&nbsp;: lent</li>
-                    <li class="fragment">Con&nbsp;: workflow différent en prod et en dev</li>
+                    <li class="fragment">Pros&nbsp;: erreur de compilation dans le navigateur</li>
+                    <li class="fragment">Pros&nbsp;: plus simple à configurer</li>
+                    <li class="fragment">Cons&nbsp;: lent</li>
+                    <li class="fragment">Cons&nbsp;: workflow différent en prod et en dev</li>
                   </ul>
                 </section>
 
@@ -516,6 +526,8 @@ class TurtlesCtrl {
                   </ul>
                 </section>
 
+
+
                 <section>
                   <h2>Angular 2 !</h2>
                   On peut mélanger du code angular 1 et du code angular 2
@@ -527,7 +539,7 @@ class TurtlesCtrl {
                 </section>
 
                 <section>
-                  parler des alternatives pour utiliser les annotations angular 2 dans angular 1
+                  Parler de ng-forward
                 </section>
 
         <section>
