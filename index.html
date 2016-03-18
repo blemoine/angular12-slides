@@ -77,9 +77,13 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-				      <h1>De Angular 1 à Angular 2</h1>
-              //TODO Une jolie image avec les 2 logos ?
-              // Un morphing du logo du 1 vers le 2 ?
+				      <h1>De Angular 1<br /> à Angular 2</h1>
+              <div>
+                <img src="images/Angular1-logo.png" style="vertical-align:middle; height:200px"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="images/Angular2-logo.png" style="vertical-align:middle; height:200px"/>
+              </div>
+
 				</section>
 
         <section>
@@ -139,24 +143,29 @@
         </section>
 
         <section>
-          <h2>Angular 1 - Exemple</h2>
-<pre><code class="javascript">
-  TODO écrire un exemple
-</code></pre>
-        </section>
-
-        <section>
           <h2>Angular 2 - Exemple</h2>
-<pre><code class="javascript">
-  TODO écrire le meme  exemple
+<pre><code class="javascript" data-trim>
+@Component({
+  selector: 'my-app',
+  template:`
+    &lt;h1>{{title}}&lt;/h1>
+    &lt;input [(ngModel)]="hero.name" placeholder="name">
+    `
+})
+export class AppComponent {
+  public title: string = 'Tour of Heroes';
+  public hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
+}
 </code></pre>
         </section>
 
         <section>
           <h2>TypeScript</h2>
-          //TODO Logo
+          <img src="images/ts-logo.png" style="height:200px"/>
         </section>
-
 
         <section>
           <h2>TypeScript</h2>
@@ -195,18 +204,15 @@ room.addUser({firstName:'Georges', lastName:'Abitbol'});
           <ul>
             <li>Migration et apprentissage simples</li>
             <li>Nécessité d'utiliser des fichiers d'entête <code>.d.ts</code> pour les librairies</li>
-            <li>Documente efficacement</li>
+            <li>Refactoring simplifié</li>
+            <li>Types servent de documentation</li>
           </ul>
         </section>
 
         <section>
           <h2>Étude de cas</h2>
-          <h3>J'utilise Angular 1 <br />et<br /> je veux une migration la moins douloureuse possible</h3>
-          //TODO IMAGE ? Morphine ?
-          https://angular.io/docs/ts/latest/guide/upgrade.html
-          FOCUS on WHY not on HOW
+          <a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a>
         </section>
-
 
         <section>
           <h2>Étape 1</h2>
@@ -294,8 +300,36 @@ angular.module('turtles.app').config(['$routeProvider',
 
                 <section>
                   <h2><code>component</code></h2>
-                  Montrer la nouvelle fonctionnalité, comparer avec directive
-                  insister sur < et &
+<pre><code class="javascript" data-trim>
+function TurtlesListCtrl() {
+  this.delete = function(turtleToDelete) {
+    this.turtles = this.turtles.filter(function(turtle) {
+      return turtleToDelete != turtle;
+    })
+    this.onDelete({turtle:turtle});
+  }
+}
+</code></pre>
+                </section>
+
+                <section>
+                  <h2><code>component</code></h2>
+<pre><code class="javascript" data-trim>
+var turtlesList = {
+  bindings:{
+    turtles:'<',
+    onDelete:'&amp;'
+  },
+  controller:TurtlesListCtrl
+  template:'&lt;ul>
+    &lt;li ng-repeat="turtle in $ctrl.turtles">
+      {{turtle.name}}
+      &lt;button on-click="$ctrl.delete(turtle)">X&lt;/button>
+    &lt;/li>
+  &lt;/ul>'
+}
+angular.module('turtles.app').component('turtlesList', turtlesList )
+</code></pre>
                 </section>
 
                 <section>
