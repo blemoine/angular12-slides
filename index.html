@@ -15,7 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -480,7 +481,7 @@ typings install jquery --save --ambient
 typings install angular --save --ambient
 typings install angular-component-router --save --ambient
 </code></pre>
-<pre><code class="javascript" data-trim>
+<pre><code class="typescript" data-trim>
 System.config({
   //...
   packages: {
@@ -500,7 +501,7 @@ System.config({
 
                 <section>
                   <h2>Bootstraping</h2>
-                <pre><code class="javascript" data-trim>
+                <pre><code class="typescript" data-trim>
 System.import('src/app')
 .then(function() {
   return System.import('angular');
@@ -526,7 +527,7 @@ System.import('src/app')
 
                 <section>
                   <h2>Les types</h2>
-                  <pre><code class="javascript" data-trim>
+                  <pre><code class="typescript" data-trim>
 export interface Turtle {
   name:string
   color:string
@@ -547,7 +548,7 @@ export default class TurtlesService {
 
                 <section>
                   <h2>Exemple</h2>
-<pre><code class="javascript" data-trim>
+<pre><code class="typescript" data-trim>
 import {Turtle} from './turtleService'
 import TurtlesService from './turtleService';
 
@@ -567,7 +568,7 @@ class TurtlesCtrl {
 
                 <section>
                   <h2>Comment remplacer <code>$scope.$watch</code></h2>
-<pre><code class="javascript" data-trim>
+<pre><code class="typescript" data-trim>
 class TurtlesCtrl {
   public turtles:Array&lt;Turtle> = []
 
@@ -582,7 +583,7 @@ class TurtlesCtrl {
   }
 }
 </code></pre>
-<pre><code class="javascript" data-trim>
+<pre><code class="html" data-trim>
   &lt;input ng-model="vm.firstTurtleName" />
 </code></pre>
                 </section>
@@ -592,7 +593,7 @@ class TurtlesCtrl {
                   <ul>
                     <li>Ajouter du <em>comportement transverse</em> à des méthodes</li>
                   </ul>
-<pre><code class="javascript" data-trim>
+<pre><code class="typescript" data-trim>
 //debounce.ts
 import _ from 'lodash';
 
@@ -607,7 +608,7 @@ function debounce(debounceInMs:number) {
 
 export default debounce
 </code></pre>
-<pre><code class="javascript" data-trim>
+<pre><code class="typescript" data-trim>
 class TurtlesCtrl {
   @debounce(300)
   search(textToSearch:string) {
@@ -646,7 +647,7 @@ class TurtlesCtrl {
                   <h2>UpgradeAdapter</h2>
                   <ul>
                     <li>Upgrade des composants et service Angular 1</li>
-                    <li>Downgrade des composants et service Angular 2</li>
+                    <li>Downgrade des composants et service  Angular 2</li>
                   </ul>
                 </section>
 
