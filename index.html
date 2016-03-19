@@ -211,19 +211,20 @@ room.addUser({firstName:'Georges', lastName:'Abitbol'});
 
         <section>
           <h2>Étude de cas</h2>
+          <h3>Migrer progressivement d'Angular 1 à Angular 2</h3>
           <a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a>
         </section>
 
         <section>
           <h2>Étape 1</h2>
-          <h3>Suivre les bonnes pratiques</h3>
+          <h3>Suivre les bonnes pratiques<br /> d'Angular 1</h3>
           <a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a>
         </section>
 
         <section>
           <h2>Réorganiser son code</h2>
           <p>Organisation en modules <strike>techniques</strike> fonctionnels</p>
-          <img src="images/angular-component-tree.png" />
+          <img src="images/angular-component-tree.png" style="height:500px"/>
         </section>
 
         <section>
@@ -296,8 +297,31 @@ angular.module('turtles.app').config(['$routeProvider',
 
                 <section>
                   <h2>Composants</h2>
-                  //TODO img components everywere
+                  <img src="images/componentsEverywhere.jpg" />
                 </section>
+
+
+                <section>
+                  <h2><code>component</code></h2>
+<pre><code class="javascript" data-trim>
+var turtlesList = {
+  bindings: {
+    turtles: '<',
+    onDelete: '&amp;'
+  },
+  controller: TurtlesListCtrl
+  template: '&lt;ul>
+    &lt;li ng-repeat="turtle in $ctrl.turtles">
+      {{turtle.name}}
+      &lt;button on-click="$ctrl.delete(turtle)">X&lt;/button>
+    &lt;/li>
+  &lt;/ul>'
+}
+
+angular.module('turtles.app').component('turtlesList', turtlesList)
+</code></pre>
+                </section>
+
 
                 <section>
                   <h2><code>component</code></h2>
@@ -314,39 +338,49 @@ function TurtlesListCtrl() {
                 </section>
 
                 <section>
-                  <h2><code>component</code></h2>
-<pre><code class="javascript" data-trim>
-var turtlesList = {
-  bindings:{
-    turtles:'<',
-    onDelete:'&amp;'
-  },
-  controller:TurtlesListCtrl
-  template:'&lt;ul>
-    &lt;li ng-repeat="turtle in $ctrl.turtles">
-      {{turtle.name}}
-      &lt;button on-click="$ctrl.delete(turtle)">X&lt;/button>
-    &lt;/li>
-  &lt;/ul>'
-}
-angular.module('turtles.app').component('turtlesList', turtlesList )
-</code></pre>
-                </section>
-
-                <section>
                   <h2>Tout est composant</h2>
-                  Montrer une capture d'écran avec les border sur les composants
+                  <img src="images/app-as-component.png" />
                 </section>
 
                 <section>
                   <h2>Routing</h2>
-                  //angular_1_router
+                  <a style="font-size:2.2rem;" href="https://github.com/angular/angular/tree/master/modules/angular1_router">
+                    https://github.com/angular/angular/tree/master/modules/angular1_router
+                  </a>
+                  <ul>
+                    <li>Routeur orienté composant</li>
+                    <li>récupérable via NPM <code>@angular/router</code></li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Routing - exemple</h2>
+                  <pre><code class="javascript" data-trim>
+angular.module('app', [
+  'ngComponentRouter',
+  'turtles.app'
+])
+.component('app', {
+  template: '&lt;ng-outlet>&lt;/ng-outlet>',
+  $routeConfig: [
+    { path: '/turtles/...',
+      name: 'Turtles',
+      component: 'turtles',
+      useAsDefault: true
+    }
+  ]
+})
+.value('$routerRootComponent', 'app')
+                  </code></pre>
+                  <pre><code class="html" data-trim>
+&lt;app>&lt;/app>
+                  </code></pre>
                 </section>
 
                 <section>
                   <h2>Système de module</h2>
-                  //IMg ? Eh dawg ?
                 </section>
+
 
                 <section>
                   <h2>ES6 Syntax</h2>
@@ -373,7 +407,7 @@ multiply(2, 3) //6
                   <ul>
                     <li>Module Loader</li>
                     <li class="fragment">Support AMD, CommonJS, ES6</li>
-                    <li class="fragment">Choisir par défaut sur Angular 2</li>
+                    <li class="fragment">Défaut sur Angular 2</li>
                     <li class="fragment">Future Standard <em class="fragment">peut être</em></li>
                   </ul>
                 </section>
@@ -459,23 +493,26 @@ System.import('src/app')
                     <li>Eviter les appels dynamiques</li>
                     <li>Typer explicitement les entrées/sorties</li>
                   </ul>
+                </section>
+
+                <section>
+                  <h2>Les types</h2>
                   <pre><code class="javascript" data-trim>
 export interface Turtle {
   name:string
   color:string
 }
 
-class TurtlesService {
-    public turtles:Array&lt;Turtle> = [{name:'Leonardo', color:'blue'}]
+export default class TurtlesService {
+  public turtles:Array&lt;Turtle> = [{name:'Leonardo', color:'blue'}]
 
-    static $inject = ['$q'];
-    constructor(private $q:ng.IQService) { }
-    findAll():ng.IPromise&lt;Array&lt;Turtle>> {
-      return this.$q.resolve(this.turtles)
-    }
+  static $inject = ['$q'];
+  constructor(private $q:ng.IQService) { }
+
+  findAll():ng.IPromise&lt;Array&lt;Turtle>> {
+    return this.$q.resolve(this.turtles)
+  }
 }
-
-export default TurtlesService;
                   </code></pre>
                 </section>
 
@@ -561,21 +598,125 @@ class TurtlesCtrl {
                   </ul>
                 </section>
 
-
-
                 <section>
                   <h2>Angular 2 !</h2>
-                  On peut mélanger du code angular 1 et du code angular 2
-                  UpgradeAdapter - partage de service, partage de composant, dans un sens et dans l'autre
-                  Montrer par l'exemple ?
-                  Angular 1 est toujours parent
-                  Faire une image avec les boites qui montre l'arborescence
-                  DOwngrade / upgrade
                 </section>
 
                 <section>
-                  Parler de ng-forward
+                  <h2>Installer Angular 2</h2>
+                  <pre><code>jspm install angular2 rxjs reflect-metadata</code></pre>
                 </section>
+
+                <section>
+                  <h2>Application hybride</h2>
+                  <img src="images/hybrid.png" />
+                </section>
+
+                <section>
+                  <h2>UpgradeAdapter</h2>
+                  <ul>
+                    <li>Upgrade des composants Angular 1</li>
+                    <li>Downgrade des composants Angular 2</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>UpgradeAdapter</h2>
+<pre><code class="typescript" data-trim>
+//upgrader.ts
+import {UpgradeAdapter} from 'angular2/upgrade';
+const upgradeAdapter = new UpgradeAdapter();
+
+export default upgradeAdapter
+</code></pre>
+<pre><code class="typescript" data-trim>
+System.import('src/app')
+.then(function() {
+  return System.import('reflect-metadata');
+})
+.then(function() {
+  return System.import('src/upgrader');
+})
+.then(function(upgradeAdapter) {
+  upgradeAdapter.default.bootstrap(document.body, ['app']);
+  //angular.bootstrap(document.body, ['app'], {strictDi:true});
+})
+.catch(function(err) {
+  console.log('Error: ', err, err.stack);
+});
+</code></pre>
+                </section>
+
+                <section>
+                <h2>Downgrade</h2>
+                <pre><code class="typescript" data-trim>
+const turtlesShow = {
+  bindings: {
+    turtles:'&lt;'
+  },
+  template:`&lt;ul>
+    &lt;li ng-repeat="turtle in $ctrl.turtles track by turtle.name">
+      &lt;span class="turtle-name">{{turtle.name}}&lt;/span>
+      &lt;span class="round"
+               ng-style="{'background-color':turtle.color}">&lt;/span>
+    &lt;/li>
+  &lt;/ul>`
+}
+export default turtlesShow;
+
+                </code></pre>
+                </section>
+
+                <section>
+                <h2>Downgrade</h2>
+                <pre style="font-size:1.11rem;"><code class="typescript" data-trim>
+import 'reflect-metadata';
+import {Component} from 'angular2/core';
+import {Turtle} from './turtleService'
+
+@Component({
+ selector:'turtlesShow2',
+ template:`
+ &lt;ul>
+   &lt;li *ngFor="#turtle of turtles">
+     &lt;span class="turtle-name">{{turtle.name}}&lt;/span>
+     &lt;span class="round"
+              [ngStyle]="{'background-color':turtle.color}">&lt;/span>
+   &lt;/li>
+ &lt;/ul>`,
+ inputs: ['turtles']
+})
+export default class TurtlesShow {
+    public turtles:Array&lt;Turtle> = [];
+}
+                </code></pre>
+                </section>
+
+                <section>
+                  <h2>Downgrade</h2>
+<pre style="font-size:1.23rem;"><code data-trim class="typescript">
+import angular from 'angular';
+import upgradeAdapter from 'upgrader';
+angular.module('turtles.app').directive('turtlesShow',
+  &lt;IDirectiveFactory>upgradeAdapter.downgradeNg2Component(turtlesShow2))
+</code></pre>
+                </section>
+
+        <section>
+        <h2>Upgrade</h2>
+<pre><code data-trim class="typescript">
+
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Ng-Forward</h2>
+          <a href="https://github.com/ngUpgraders/ng-forward">https://github.com/ngUpgraders/ng-forward</a>
+          <ul>
+            <li>Utiliser les décorateurs Angular 2 dans Angular 1</li>
+            <li>Chemin alternatif</li>
+          </ul>
+        </section>
 
         <section>
           <h2>Conclusion</h2>
@@ -588,7 +729,6 @@ class TurtlesCtrl {
 
 				<section>
 					<h2>Questions&nbsp;?</h2>
-          //TODO Une image
 				</section>
 			</div>
 		</div>
