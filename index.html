@@ -88,11 +88,15 @@
 
         <section>
           <h2>Qui suis-je&nbsp;?</h2>
-          <ul>
+<img style="float:right;width:350px; vertical-align:middle;" src="images/moloch.jpg" />
+          <ul style="float:left;width:400px;vertical-align:middle;position:relative;top:40px;">
             <li>Benoît Lemoine</li>
             <li>Développeur FullStack (Scala / TypeScript) chez Captain&nbsp;Dash</li>
             <li>@benoit_lemoine</li>
           </ul>
+
+
+
         </section>
 
         <section>
@@ -101,7 +105,7 @@
           <ul>
             <li class="fragment">Un framework Web</li>
             <li class="fragment">Créé en 2009</li>
-            <li class="fragment">Open source</li>
+            <li class="fragment">Open source - License MIT</li>
             <li class="fragment">Sponsorisé par google</li>
           </ul>
         </section>
@@ -162,56 +166,11 @@ export class AppComponent {
 </code></pre>
         </section>
 
-        <section>
-          <h2>TypeScript</h2>
-          <img src="images/ts-logo.png" style="height:200px"/>
-        </section>
 
-        <section>
-          <h2>TypeScript</h2>
-          <ul>
-            <li class="fragment">Made in MicroSoft en 2012</li>
-            <li class="fragment">Open Source (Apache V2)</li>
-            <li class="fragment">Sur-ensemble d'EcmaScript 2015/2016</li>
-            <li class="fragment">Statiquement typé</li>
-            <li class="fragment">Typage structurel et graduel</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>TypeScript - Exemple</h2>
-<pre><code class="typescript" data-trim>
-interface User {
-  firstName:string
-  lastName:string
-}
-
-class Room {
-  constructor(private users:Array&lt;User> = []) {}
-
-  addUser(user:User) {
-    this.users.push(user);
-  }
-}
-
-const room = new Room();
-room.addUser({firstName:'Georges', lastName:'Abitbol'});
-</code></pre>
-        </section>
-
-        <section>
-          <h2>TypeScript</h2>
-          <ul>
-            <li>Migration et apprentissage simples</li>
-            <li>Nécessité d'utiliser des fichiers d'entête <code>.d.ts</code> pour les librairies</li>
-            <li>Refactoring simplifié</li>
-            <li>Types servent de documentation</li>
-          </ul>
-        </section>
 
         <section>
           <h2>Étude de cas</h2>
-          <h3>Migrer progressivement d'Angular 1 à Angular 2</h3>
+          <h3>Migrer progressivement <br /> d'Angular 1 à Angular 2</h3>
           <a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a>
         </section>
 
@@ -230,7 +189,7 @@ room.addUser({firstName:'Georges', lastName:'Abitbol'});
         <section>
           <h2>Service</h2>
           <ul>
-            <li>Eviter <strike><code>factory</code></strike></li>
+            <li>Éviter <strike><code>factory</code></strike></li>
             <li>Utiliser <code>service</code></li>
           </ul>
 <pre><code class="javascript" data-trim>
@@ -296,7 +255,8 @@ angular.module('turtles.app').config(['$routeProvider',
                 </section>
 
                 <section>
-                  <h2>Composants</h2>
+                  <h2>Étape 2</h2>
+                  <h3>Composants</h3>
                   <img src="images/componentsEverywhere.jpg" />
                 </section>
 
@@ -343,7 +303,8 @@ function TurtlesListCtrl() {
                 </section>
 
                 <section>
-                  <h2>Routing</h2>
+                  <h2>Étape 2.5</h2>
+                  <h3>Routing</h3>
                   <a style="font-size:2.2rem;" href="https://github.com/angular/angular/tree/master/modules/angular1_router">
                     https://github.com/angular/angular/tree/master/modules/angular1_router
                   </a>
@@ -378,7 +339,8 @@ angular.module('app', [
                 </section>
 
                 <section>
-                  <h2>Système de module</h2>
+                  <h2>Étape 3</h2>
+                  <h3>Système de module</h3>
                 </section>
 
 
@@ -423,13 +385,80 @@ multiply(2, 3) //6
 
                 <section>
                   <h2>TypeScript</h2>
-                  <p>Compilation à la volée</p>
+                  <img src="images/ts-logo.png" style="height:200px"/>
+                </section>
+
+                <section>
+                  <h2>TypeScript</h2>
                   <ul>
-                    <li class="fragment">Pros&nbsp;: erreur de compilation dans le navigateur</li>
-                    <li class="fragment">Pros&nbsp;: plus simple à configurer</li>
-                    <li class="fragment">Cons&nbsp;: lent</li>
-                    <li class="fragment">Cons&nbsp;: workflow différent en prod et en dev</li>
+                    <li>Langage transpilant vers JavaScript</li>
+                    <li class="fragment">Made in MicroSoft en 2012</li>
+                    <li class="fragment">Open Source - Apache V2</li>
+                    <li class="fragment">Sur-ensemble d'EcmaScript 2015/2016</li>
+                    <li class="fragment">Statiquement typé</li>
+                    <li class="fragment">Typage structurel et graduel</li>
                   </ul>
+                </section>
+
+                <section>
+                  <h2>TypeScript - Exemple</h2>
+        <pre><code class="typescript" data-trim>
+interface User {
+  firstName:string
+  lastName:string
+}
+
+class Room {
+  constructor(private users:Array&lt;User> = []) {}
+
+  addUser(user:User) {
+    this.users.push(user);
+  }
+}
+
+const room = new Room();
+room.addUser({firstName:'Georges', lastName:'Abitbol'});
+        </code></pre>
+                </section>
+
+                <section>
+                  <h2>TypeScript</h2>
+                  <ul>
+                    <li>Migration et apprentissage simples</li>
+                    <li class="fragment">Completion dans l'IDE</li>
+                    <li class="fragment">Refactoring simplifié</li>
+                    <li class="fragment">Types servent de documentation</li>
+                  </ul>
+                </section>
+
+
+                <section>
+                  <h2>TypeScript</h2>
+                  <p>Compilation à la volée ?</p>
+                  <ul style="float:left;width:45%">
+                    <li>Pros</li>
+
+                        <li class="fragment">erreur de compilation dans le navigateur</li>
+                        <li class="fragment">plus simple à configurer</li>
+
+
+                  </ul>
+
+                  <ul style="float:right;width:45%">
+                    <li>Cons</li>
+
+                      <li class="fragment">lent</li>
+                      <li class="fragment">workflow différent en prod et en dev</li>
+
+                  </ul>
+                </section>
+
+
+                <section>
+                  <h2>TypeScript</h2>
+                  <p>Support des librairies tierces</p>
+                  <p>par des fichiers d'entetes (.d.ts)</p>
+                  <a href="https://github.com/DefinitelyTyped/DefinitelyTyped">https://github.com/DefinitelyTyped/DefinitelyTyped</a>
                 </section>
 
                 <section>
@@ -437,7 +466,7 @@ multiply(2, 3) //6
                   <ul>
                     <li>Package manager pour les fichiers d'entête TypeScript</li>
                   </ul>
-                  <pre><code>
+                  <pre><code data-trim>
 /// &lt;reference path="main.d.ts" />
                   </code></pre>
                 </section>
@@ -489,9 +518,9 @@ System.import('src/app')
                 <section>
                   <h2>Les types</h2>
                   <ul>
-                    <li>Bannir au maximum <code>any</code></li>
-                    <li>Eviter les appels dynamiques</li>
-                    <li>Typer explicitement les entrées/sorties</li>
+                    <li class="fragment">Bannir au maximum <code>any</code></li>
+                    <li class="fragment">Typer explicitement les entrées/sorties</li>
+                    <li class="fragment">Éviter les appels dynamiques</li>
                   </ul>
                 </section>
 
@@ -517,7 +546,7 @@ export default class TurtlesService {
                 </section>
 
                 <section>
-                  <h2>Abuser d'ES6</h2>
+                  <h2>Exemple</h2>
 <pre><code class="javascript" data-trim>
 import {Turtle} from './turtleService'
 import TurtlesService from './turtleService';
@@ -599,7 +628,8 @@ class TurtlesCtrl {
                 </section>
 
                 <section>
-                  <h2>Angular 2 !</h2>
+                  <h2>Étape 4</h2>
+                  <h3>Angular 2 !</h3>
                 </section>
 
                 <section>
@@ -615,8 +645,8 @@ class TurtlesCtrl {
                 <section>
                   <h2>UpgradeAdapter</h2>
                   <ul>
-                    <li>Upgrade des composants Angular 1</li>
-                    <li>Downgrade des composants Angular 2</li>
+                    <li>Upgrade des composants et service Angular 1</li>
+                    <li>Downgrade des composants et service Angular 2</li>
                   </ul>
                 </section>
 
