@@ -102,22 +102,42 @@
 
         <section>
           <h2>Un peu d'histoire</h2>
-          <p><strong>Angular est...</strong></p>
+          <h3>2009</h2>
+            <img src="images/erectus.jpg" />
+
+        </section>
+
+        <section>
+          <h2>2009</h2>
+            <ul>
+              <li class="fragment">Sortie d'<em>Angular</em></li>
+              <li class="fragment">Un framework Web</li>
+              <li class="fragment">Open source - License MIT</li>
+              <li class="fragment">Sponsorisé par Google</li>
+            </ul>
+        </section>
+
+        <section>
+          <h4>Septembre 2014</h4>
           <ul>
-            <li class="fragment">Un framework Web</li>
-            <li class="fragment">Créé en 2009</li>
-            <li class="fragment">Open source - License MIT</li>
-            <li class="fragment">Sponsorisé par google</li>
+            <li class="fragment">Annonce d'<em>Angular 2</em></li>
+            <li class="fragment">N'a plus grand chose à voir avec Angular 1</li>
+            <li class="fragment">Pas de chemin de migration prévu</li>
           </ul>
         </section>
 
         <section>
-          <h2>Angular 2</h2>
+          <h4>2015</h4>
           <ul>
-            <li class="fragment">Annoncé en septembre 2014</li>
-            <li class="fragment">Sans doute pour mi-2016</li>
-            <li class="fragment">N'a plus grand chose à voir avec Angular 1</li>
-            <li class="fragment">Pas de chemin de migration prévu <strong class="fragment">à l'origine</strong></li>
+            <li class="fragment">Année du <em>Angular Bashing</em></li>
+            <li class="fragment">Chemin de migration prévu</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>2016</h4>
+          <ul>
+            <li class="fragment">Sortie d'Angular 2 ?</li>
           </ul>
         </section>
 
@@ -280,21 +300,6 @@ var turtlesList = {
 }
 
 angular.module('turtles.app').component('turtlesList', turtlesList)
-</code></pre>
-                </section>
-
-
-                <section>
-                  <h2><code>component</code></h2>
-<pre><code class="javascript" data-trim>
-function TurtlesListCtrl() {
-  this.delete = function(turtleToDelete) {
-    this.turtles = this.turtles.filter(function(turtle) {
-      return turtleToDelete != turtle;
-    })
-    this.onDelete({turtle:turtle});
-  }
-}
 </code></pre>
                 </section>
 
@@ -706,7 +711,7 @@ import {Component} from 'angular2/core';
 import {Turtle} from './turtleService'
 
 @Component({
- selector:'turtlesShow2',
+ selector:'turtlesShow',
  template:`
  &lt;ul>
    &lt;li *ngFor="#turtle of turtles">
@@ -745,16 +750,15 @@ angular.module('turtles.app').directive('turtlesShow',
           <a href="https://github.com/ngUpgraders/ng-forward">https://github.com/ngUpgraders/ng-forward</a>
           <ul>
             <li>Utiliser les décorateurs Angular 2 dans Angular 1</li>
-            <li>Chemin alternatif</li>
           </ul>
         </section>
 
         <section>
           <h2>Conclusion</h2>
           <ul>
-            <li>Suivre les bonnes pratiques angular</li>
-            <li>Utiliser un système de module + TypeScript</li>
-            <li>Mélanger Angular 1 et 2</li>
+            <li class="fragment">Suivre les bonnes pratiques angular</li>
+            <li class="fragment">Utiliser un système de module + TypeScript</li>
+            <li class="fragment">Mélanger Angular 1 et 2</li>            
           </ul>
         </section>
 
