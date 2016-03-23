@@ -192,13 +192,12 @@ export class AppComponent {
         <section>
           <h2>Étude de cas</h2>
           <h3>Migrer progressivement <br /> d'Angular 1 à Angular 2</h3>
-          <a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a>
+
         </section>
 
         <section>
           <h2>Étape 1</h2>
-          <h3>Suivre les bonnes pratiques<br /> d'Angular 1</h3>
-          <a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a>
+          <h3>Suivre les bonnes pratiques</h3>
         </section>
 
         <section>
@@ -277,8 +276,7 @@ angular.module('turtles.app').config(['$routeProvider',
 
                 <section>
                   <h2>Étape 2</h2>
-                  <h3>Composants</h3>
-                  <img src="images/componentsEverywhere.jpg" />
+                  <img src="images/componentsEverywhere.jpg" alt="Components"/>
                 </section>
 
 
@@ -311,9 +309,7 @@ angular.module('turtles.app').component('turtlesList', turtlesList)
                 <section>
                   <h2>Étape 2.5</h2>
                   <h3>Routing</h3>
-                  <a style="font-size:2.2rem;" href="https://github.com/angular/angular/tree/master/modules/angular1_router">
-                    https://github.com/angular/angular/tree/master/modules/angular1_router
-                  </a>
+
                   <ul>
                     <li>Routeur orienté composant</li>
                     <li>récupérable via NPM <code>@angular/router</code></li>
@@ -464,7 +460,7 @@ room.addUser({firstName:'Georges', lastName:'Abitbol'});
                   <h2>TypeScript</h2>
                   <p>Support des librairies tierces</p>
                   <p>par des fichiers d'entetes (.d.ts)</p>
-                  <a href="https://github.com/DefinitelyTyped/DefinitelyTyped">https://github.com/DefinitelyTyped/DefinitelyTyped</a>
+
                 </section>
 
                 <section>
@@ -741,7 +737,20 @@ angular.module('turtles.app').directive('turtlesShow',
         <section>
         <h2>Upgrade</h2>
 <pre><code data-trim class="typescript">
+const MyAngular1Directive =
+   upgradeAdapter.upgradeNg1Component('myAngular1Directive');
 
+@Component({
+  selector:'MyAngular2Directive',
+  template:`
+  &lt;div>
+    &lt;My-Angular1-Directive my-params="2" />
+  &lt;/div>`,
+  directives:[MyAngular1Directive]
+})
+export default class MyAngular2Directive {
+
+};
 </code></pre>
         </section>
 
@@ -758,7 +767,20 @@ angular.module('turtles.app').directive('turtlesShow',
           <ul>
             <li class="fragment">Suivre les bonnes pratiques angular</li>
             <li class="fragment">Utiliser un système de module + TypeScript</li>
-            <li class="fragment">Mélanger Angular 1 et 2</li>            
+            <li class="fragment">Migrer les "feuilles" de votre arbre de composants</li>
+            <li class="fragment">Finir par le routing et le composant <em>top-level</em></li>            
+          </ul>
+        </section>
+
+        <section>
+          <h2>Webography</h2>
+          <ul>
+            <li><a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a></li>
+            <li><a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a></li>
+            <li><a style="font-size:2.2rem;" href="https://github.com/angular/angular/tree/master/modules/angular1_router">
+              https://github.com/angular/angular/tree/master/modules/angular1_router
+            </a></li>
+            <li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped">https://github.com/DefinitelyTyped/DefinitelyTyped</a></li>
           </ul>
         </section>
 
