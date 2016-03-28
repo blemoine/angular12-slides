@@ -602,16 +602,14 @@ class TurtlesCtrl {
 //debounce.ts
 import _ from 'lodash';
 
-function debounce(debounceInMs:number) {
- return function (target:Object,
-                   propertyKey:string,
+export default function debounce(debounceInMs:number) {
+ return function (target:Object, propertyKey:string,
                    descriptor:TypedPropertyDescriptor&lt;any>) {
   descriptor.value = _.debounce(descriptor.value, debounceInMs);
   return descriptor
  }
 }
 
-export default debounce
 </code></pre>
 <pre><code class="typescript" data-trim>
 class TurtlesCtrl {
