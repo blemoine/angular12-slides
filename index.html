@@ -16,6 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="devoxx_style/devoxxfr.css" id="theme">
 
 
 		<!-- Code syntax highlighting -->
@@ -77,7 +78,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-state="intro">
 				      <h1>De Angular 1<br /> à Angular 2</h1>
               <div>
                 <img src="images/Angular1-logo.png" style="vertical-align:middle; height:200px"/>
@@ -102,7 +103,7 @@
 
         <section>
           <h2>Un peu d'histoire</h2>
-          <h3>2009</h2>
+          <h3>2009</h3>
             <img src="images/erectus.jpg" />
 
         </section>
@@ -790,6 +791,7 @@ export default class MyAngular2Directive {
 				<section>
 					<h2>Questions&nbsp;?</h2>
 				</section>
+        <div class="footer"><p>#fromAngular1to2</p><img align="right" src="./devoxx_style/logo-texte-devoxx-france-400.png" /></div>
 			</div>
 		</div>
 
@@ -801,12 +803,13 @@ export default class MyAngular2Directive {
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
+				controls: false,
+				progress: false,
 				history: true,
 				center: true,
 
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        width:'auto',
 
 				// Optional reveal.js plugins
 				dependencies: [
