@@ -190,8 +190,8 @@ export class AppComponent {
 
 
         <section>
-          <h2>Étude de cas</h2>
-          <h3>Migrer progressivement <br /> d'Angular 1 à Angular 2</h3>
+
+          <h2>Migrer progressivement <br /> d'Angular 1 à Angular 2</h2>
 
         </section>
 
@@ -290,7 +290,7 @@ var turtlesList = {
   },
   controller: TurtlesListCtrl
   template: '&lt;ul>
-    &lt;li ng-repeat="turtle in $ctrl.turtles">
+    &lt;li ng-repeat="turtle in $ctrl.turtles track by turtle.name">
       {{turtle.name}}
       &lt;button on-click="$ctrl.delete(turtle)">X&lt;/button>
     &lt;/li>
@@ -298,6 +298,9 @@ var turtlesList = {
 }
 
 angular.module('turtles.app').component('turtlesList', turtlesList)
+</code></pre>
+<pre><code data-trim>
+  &lt;turtles-list turtles="vm.turtles" />
 </code></pre>
                 </section>
 
@@ -381,7 +384,7 @@ multiply(2, 3) //6
                   <ul>
                     <li><em>Un autre</em> package manager</li>
                     <li class="fragment">Depuis npm, github, bitbucket, etc.</li>
-                    <li class="fragment">Même auteur que SystemJs</li>
+                    <li class="fragment">Intégration forte avec SystemJs</li>
                   </ul>
                 </section>
 
@@ -768,7 +771,7 @@ export default class MyAngular2Directive {
             <li class="fragment">Suivre les bonnes pratiques angular</li>
             <li class="fragment">Utiliser un système de module + TypeScript</li>
             <li class="fragment">Migrer les "feuilles" de votre arbre de composants</li>
-            <li class="fragment">Finir par le routing et le composant <em>top-level</em></li>            
+            <li class="fragment">Finir par le routing et le composant <em>top-level</em></li>
           </ul>
         </section>
 
