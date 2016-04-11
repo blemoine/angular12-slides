@@ -16,6 +16,8 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="devoxx_style/devoxxfr.css" id="theme">
 
 
@@ -82,8 +84,6 @@ TODO
 * Repréciser régulièrement que l'on fait de l'Angular 1
 * Insister lourdement sur le fait de faire des archi composants
 * Expliquer le $inject
-* Ajouter le nom des créateurs et le fait que ce soit des Javaïstes
-* Expliciter ce qu'est la transpilation
 * Faire une comparaison côte à côte d'Angular 1 et 2
 
       -->
@@ -102,15 +102,15 @@ TODO
 
         <section>
           <h2>Qui suis-je&nbsp;?</h2>
-<img style="float:right;width:350px; vertical-align:middle;" src="images/moloch.jpg" />
-          <ul style="float:left;width:400px;vertical-align:middle;position:relative;top:40px;">
+
+          <ul style="display:inline-block;width:560px;vertical-align:top;position:relative;top:40px;">
             <li>Benoît Lemoine</li>
-            <li>Développeur FullStack (Scala / TypeScript) chez Captain&nbsp;Dash</li>
+            <li>Développeur FullStack chez Captain&nbsp;Dash
+              <br />(<strong>Scala</strong> / <strong>TypeScript</strong>)
+              </li>
             <li>@benoit_lemoine</li>
           </ul>
-
-
-
+          <img style="display:inline-block;width:350px; vertical-align:top;" src="images/moloch.jpg" />
         </section>
 
         <section>
@@ -126,15 +126,24 @@ TODO
               <li class="fragment">Sortie d'<em>Angular</em></li>
               <li class="fragment">Un framework Web</li>
               <li class="fragment">Open source - License MIT</li>
-              <li class="fragment">Sponsorisé par Google</li>
             </ul>
+        </section>
+
+        <section>
+          <h2>~2011</h2>
+          <ul>
+            <li class="fragment">Angular est sponsorisé par Google</li>
+            <li class="fragment">Angular est à la mode</li>
+          </ul>
+          <br />
+          <br />
         </section>
 
         <section>
           <h2>Septembre 2014</h2>
           <ul>
             <li class="fragment">Annonce d'<em>Angular 2</em></li>
-            <li class="fragment">N'a plus grand chose à voir avec Angular 1</li>
+            <li class="fragment">N'a plus grand chose à voir avec <em>Angular 1</em></li>
             <li class="fragment">Pas de chemin de migration prévu</li>
           </ul>
         </section>
@@ -145,6 +154,8 @@ TODO
             <li class="fragment">Année du <em>Angular Bashing</em></li>
             <li class="fragment">Chemin de migration prévu</li>
           </ul>
+          <br />
+          <br />
         </section>
 
         <section>
@@ -152,6 +163,9 @@ TODO
           <ul>
             <li class="fragment">Sortie d'Angular 2 ?</li>
           </ul>
+          <br />
+          <br />
+          <br />
         </section>
 
         <section>
@@ -184,18 +198,18 @@ TODO
           <h2>Angular 2 - Exemple</h2>
 <pre><code class="typescript" data-trim>
 @Component({
-  selector: 'my-app',
-  template:`
-    &lt;h1>{{title}}&lt;/h1>
-    &lt;input [(ngModel)]="hero.name" placeholder="name">
-    `
+      selector: 'my-app',
+      template:`
+            &lt;h1>{{title}}&lt;/h1>
+            &lt;input [(ngModel)]="hero.name" placeholder="name">
+      `
 })
 export class AppComponent {
-  public title: string = 'Tour of Heroes';
-  public hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+      public title: string = 'Tour of Heroes';
+      public hero: Hero = {
+            id: 1,
+            name: 'Windstorm'
+      };
 }
 </code></pre>
         </section>
@@ -215,8 +229,8 @@ export class AppComponent {
 
         <section>
           <h2>Réorganiser son code</h2>
-          <p>Organisation en modules <strike>techniques</strike> fonctionnels</p>
-          <img src="images/angular-component-tree.png" style="height:500px"/>
+          <p style="margin:10px">Organisation en modules <strike>techniques</strike> fonctionnels</p>
+          <img src="images/angular-component-tree.png" style="height:460px"/>
         </section>
 
         <section>
@@ -232,12 +246,11 @@ function TurtlesService($q) {
     var turtles = [{name:'Leonardo', color:'blue'}]
 
     self.findAll = function findAll() {
-      return $q.resolve(turtles)
+        return $q.resolve(turtles)
     }
 }
 
-angular.module('turtles.app')
-    .service('TurtlesService', TurtlesService);
+angular.module('turtles.app').service('TurtlesService', TurtlesService);
 </code></pre>
         </section>
 
@@ -252,8 +265,9 @@ TurtlesCtrl.$inject = ['TurtlesService'];
 function TurtlesCtrl(TurtlesService) {
   var $ctrl = this;
   $ctrl.turtles = [];
+
   TurtlesService.findAll().then(function (turtles) {
-    $ctrl.turtles = turtles
+      $ctrl.turtles = turtles
   });
 }
 </code></pre>
@@ -262,15 +276,13 @@ function TurtlesCtrl(TurtlesService) {
                 <section>
                   <h2><code>controllerAs</code></h2>
 <pre><code class="javascript" data-trim >
-angular.module('turtles.app').config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/turtles', {
+angular.module('turtles.app').config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/turtles', {
         templateUrl: 'src/turtles/turtles.html',
         controller: 'TurtlesCtrl',
         controllerAs: '$ctrl'
-      })
-  }]);
+    })
+}]);
 </code></pre>
                 </section>
 
@@ -292,28 +304,55 @@ angular.module('turtles.app').config(['$routeProvider',
                   <img src="images/componentsEverywhere.jpg" alt="Components"/>
                 </section>
 
+                <section>
+                  <h2><code>component</code></h2>
+                <pre><code class="javascript" data-trim>
+var bootstrapInput = {
+  bindings: {
+    label: '@',
+    model: '<',
+    modelChange: '&amp;'
+  },
+  controller: BootstrapController,
+  template: '&lt;div class="form-group">' +
+    '&lt;label for="{{$ctrl.name}}">{{$ctrl.label}}&lt;/label>' +
+    '&lt;input type="text" class="form-control" ' +
+    '       placeholder="{{$ctrl.label}}"  ' +
+    '       ng-model="$ctrl.modelProxy" /> ' +
+    '&lt;/div>'
+}
+                </code></pre>
+                </section>
+
+                <section >
+                  <h2><code>component</code></h2>
+                <pre><code class="javascript" data-trim>
+function BootstrapController() {
+
+}
+
+Object.defineProperty(BootstrapController.prototype, "modelProxy", {
+    get: function () {
+        return this.model;
+    },
+    set: function (newModel) {
+        this.modelChange({ model: newModel });
+    }
+});
+                </code></pre>
+                </section>
 
                 <section>
                   <h2><code>component</code></h2>
 <pre><code class="javascript" data-trim>
-var turtlesList = {
-  bindings: {
-    turtles: '<',
-    onDelete: '&amp;'
-  },
-  controller: TurtlesListCtrl
-  template: '&lt;ul>
-    &lt;li ng-repeat="turtle in $ctrl.turtles track by turtle.name">
-      {{turtle.name}}
-      &lt;button on-click="$ctrl.delete(turtle)">X&lt;/button>
-    &lt;/li>
-  &lt;/ul>'
-}
-
-angular.module('turtles.app').component('turtlesList', turtlesList)
+angular.module('my.app').component('bootstrapInput', bootstrapInput)
 </code></pre>
 <pre><code data-trim>
-  &lt;turtles-list turtles="$ctrl.turtles" />
+  &lt;bootstrap-input
+      label="Name"
+      model="myController.name"
+      modelChange="myController.name = model"
+   >&lt;/bootstrap-input>
 </code></pre>
                 </section>
 
@@ -335,20 +374,18 @@ angular.module('turtles.app').component('turtlesList', turtlesList)
                 <section>
                   <h2>Routing - exemple</h2>
                   <pre><code class="javascript" data-trim>
-angular.module('app', [
-  'ngComponentRouter',
-  'turtles.app'
-])
-.component('app', {
-  template: '&lt;ng-outlet>&lt;/ng-outlet>',
-  $routeConfig: [
-    { path: '/turtles/...',
-      name: 'Turtles',
-      component: 'turtles',
-      useAsDefault: true
-    }
-  ]
-})
+angular.module('app',  ['ngComponentRouter', 'turtles.app'])
+  .component('app', {
+      template: '&lt;ng-outlet>&lt;/ng-outlet>',
+      $routeConfig: [
+        {
+          path: '/turtles/...',
+          name: 'Turtles',
+          component: 'turtles',
+          useAsDefault: true
+        }
+      ]
+  })
 .value('$routerRootComponent', 'app')
                   </code></pre>
                   <pre><code class="html" data-trim>
@@ -359,8 +396,8 @@ angular.module('app', [
                 <section>
                   <h2>Étape 3</h2>
                   <h3>Système de module</h3>
+                  <h3>Dans Angular 1</h3>
                 </section>
-
 
                 <section>
                   <h2>ES6 Syntax</h2>
@@ -494,9 +531,7 @@ room.addUser({firstName:'Georges', lastName:'Abitbol'});
 <pre><code class="bash" data-trim>
 npm install systemjs jspm typings typescript
 jspm install ts angular npm:@angular/router
-typings install jquery --save --ambient
-typings install angular --save --ambient
-typings install angular-component-router --save --ambient
+typings install jquery angular angular-component-router --save --ambient
 </code></pre>
 <pre><code class="typescript" data-trim>
 System.config({
@@ -575,8 +610,7 @@ class TurtlesCtrl {
 
   static $inject = ['TurtlesService'];
   constructor(private TurtlesService:TurtlesService) {
-    TurtlesService.findAll()
-      .then(turtles => this.turtles = turtles)
+    TurtlesService.findAll().then(turtles => this.turtles = turtles)
   }
 }
 
@@ -593,7 +627,7 @@ class TurtlesCtrl {
     return this.turtles[0] &amp;&amp; this.turtles[0].name;
   }
   set firstTurtleName(firstTurtleName:string) {
-    if(!this.turtles[0]) {
+    if (!this.turtles[0]) {
       this.turtles[0] = {name:'', color:''}
     }
     this.turtles[0].name = firstTurtleName;
@@ -607,18 +641,14 @@ class TurtlesCtrl {
 
                 <section>
                   <h2>Decorators</h2>
-                  <ul>
-                    <li>Ajouter du <em>comportement transverse</em> à des méthodes</li>
-                  </ul>
 <pre><code class="typescript" data-trim>
-//debounce.ts
 import _ from 'lodash';
 
 export default function debounce(debounceInMs:number) {
  return function (target:Object, propertyKey:string,
                    descriptor:TypedPropertyDescriptor&lt;any>) {
-  descriptor.value = _.debounce(descriptor.value, debounceInMs);
-  return descriptor
+    descriptor.value = _.debounce(descriptor.value, debounceInMs);
+    return descriptor
  }
 }
 
@@ -635,6 +665,7 @@ class TurtlesCtrl {
 
                 <section>
                   <h2>Decorators - Exemples</h2>
+                  <p>Ajouter du <em>comportement transverse</em> à des méthodes</p><br />
                   <ul>
                     <li>Throttle</li>
                     <li>Memoize</li>
@@ -646,6 +677,7 @@ class TurtlesCtrl {
                 <section>
                   <h2>Étape 4</h2>
                   <h3>Angular 2 !</h3>
+                  <h3 class="fragment">Dans Angular 1</h3>
                 </section>
 
                 <section>
@@ -655,7 +687,7 @@ class TurtlesCtrl {
 
                 <section>
                   <h2>Application hybride</h2>
-                  <img src="images/hybrid.png" />
+                  <img src="images/hybrid.png" style="height:500px"/>
                 </section>
 
                 <section>
@@ -669,7 +701,6 @@ class TurtlesCtrl {
                 <section>
                   <h2>UpgradeAdapter</h2>
 <pre><code class="typescript" data-trim>
-//upgrader.ts
 import {UpgradeAdapter} from 'angular2/upgrade';
 const upgradeAdapter = new UpgradeAdapter();
 
@@ -677,12 +708,8 @@ export default upgradeAdapter
 </code></pre>
 <pre><code class="typescript" data-trim>
 System.import('src/app')
-.then(function() {
-  return System.import('reflect-metadata');
-})
-.then(function() {
-  return System.import('src/upgrader');
-})
+.then(function() { return System.import('reflect-metadata'); })
+.then(function() { return System.import('src/upgrader'); })
 .then(function(upgradeAdapter) {
   upgradeAdapter.default.bootstrap(document.body, ['app']);
   //angular.bootstrap(document.body, ['app'], {strictDi:true});
@@ -693,9 +720,14 @@ System.import('src/app')
 </code></pre>
                 </section>
 
+
                 <section>
                 <h2>Downgrade</h2>
-                <pre><code class="typescript" data-trim>
+                <pre style="display:inline-block;width:49%;vertical-align:top;font-size:21px;"><code class="typescript" data-trim>
+&nbsp;
+
+
+
 const turtlesShow = {
   bindings: {
     turtles:'&lt;'
@@ -704,30 +736,25 @@ const turtlesShow = {
     &lt;li ng-repeat="turtle in $ctrl.turtles track by turtle.name">
       &lt;span class="turtle-name">{{turtle.name}}&lt;/span>
       &lt;span class="round"
-               ng-style="{'background-color':turtle.color}">&lt;/span>
+        ng-style="{'background-color':turtle.color}">&lt;/span>
     &lt;/li>
   &lt;/ul>`
 }
+
 export default turtlesShow;
-
                 </code></pre>
-                </section>
-
-                <section>
-                <h2>Downgrade</h2>
-                <pre style="font-size:1.11rem;"><code class="typescript" data-trim>
+                <pre style="display:inline-block;width:49%;vertical-align:top;font-size:21px;"><code class="typescript" data-trim>
 import 'reflect-metadata';
 import {Component} from 'angular2/core';
 import {Turtle} from './turtleService'
 
 @Component({
  selector:'turtlesShow',
- template:`
- &lt;ul>
+ template:`&lt;ul>
    &lt;li *ngFor="#turtle of turtles">
      &lt;span class="turtle-name">{{turtle.name}}&lt;/span>
      &lt;span class="round"
-              [ngStyle]="{'background-color':turtle.color}">&lt;/span>
+       [ngStyle]="{'background-color':turtle.color}">&lt;/span>
    &lt;/li>
  &lt;/ul>`,
  inputs: ['turtles']
@@ -740,11 +767,11 @@ export default class TurtlesShow {
 
                 <section>
                   <h2>Downgrade</h2>
-<pre style="font-size:1.23rem;"><code data-trim class="typescript">
+<pre ><code data-trim class="typescript">
 import angular from 'angular';
 import upgradeAdapter from 'upgrader';
 angular.module('turtles.app').directive('turtlesShow',
-  &lt;IDirectiveFactory>upgradeAdapter.downgradeNg2Component(turtlesShow2))
+        &lt;IDirectiveFactory>upgradeAdapter.downgradeNg2Component(turtlesShow2))
 </code></pre>
                 </section>
 
@@ -788,7 +815,7 @@ export default class MyAngular2Directive {
 
         <section>
           <h2>Meta-Conclusion</h2>
-          <h3>Faut-il vraiment migrer vers Angular 2&nbsp;?</h3>
+          <h3 class="fragment">Faut-il vraiment migrer vers Angular 2&nbsp;?</h3>
         </section>
 
         <section>
@@ -829,7 +856,7 @@ export default class MyAngular2Directive {
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
         width:1200,
-        height:1200*9/16,
+        height:675,
 
 				// Optional reveal.js plugins
 				dependencies: [

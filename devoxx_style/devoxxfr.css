@@ -1,6 +1,22 @@
+* {
+  font-family: 'Open Sans', sans-serif !important;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-weight:400;
+}
+
+.reveal .slides > section {
+    padding:10px;
+}
+.reveal pre {
+  font-size: 26px;
+}
+.reveal pre code {
+  max-height: 460px;
+}
 html body {
   background-image:linear-gradient(#2a013b, #10001a);
-  padding:20px;
+
 }
 
 html.intro body {
